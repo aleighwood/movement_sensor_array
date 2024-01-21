@@ -1,4 +1,4 @@
-# Mmovement Sensor
+# Movement Sensor
 A sensor array that monitors how much a user moves at night 
 
 # Block Diagram
