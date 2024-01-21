@@ -1,10 +1,12 @@
 movement sensor pseudocode for Arduino: 
 
-
+#initalise some variables
 prev_value = [0]*32 # array of previous values
 outputPins = [] # array of output pins 
+value,prev_value, threshold
 
-loop() # programme runs in until stopped
+
+loop() # programme runs until stopped
 	for i=0:31 : # loop through each sensor 
 		value = readSensor(i) 
 		if |value - prev_value[i]| > threshold: #compare current sensor value to previous
@@ -21,4 +23,7 @@ def readSensor(i)
 
 	for i in outputPins: 
 		outputPins[i] = digits[i]
+
+	delay(100 ns)
+	return analogRead(analogPin)
 		
