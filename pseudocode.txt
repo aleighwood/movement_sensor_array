@@ -1,0 +1,24 @@
+movement sensor pseudocode for Arduino: 
+
+
+prev_value = [0]*32 # array of previous values
+outputPins = [] # array of output pins 
+
+loop() # programme runs in until stopped
+	for i=0:31 : # loop through each sensor 
+		value = readSensor(i) 
+		if |value - prev_value[i]| > threshold: #compare current sensor value to previous
+			logMovement(i,currentTime()) # if difference in value passes threshold: log movement
+		else:
+			do nothing
+		prev_value[i] = value # set previous value
+
+def logMovement(i,time)
+	serial.println("sensor: " + str(i) + ", Time: " + str(time))
+
+def readSensor(i)
+	digits = binary(i)	
+
+	for i in outputPins: 
+		outputPins[i] = digits[i]
+		
