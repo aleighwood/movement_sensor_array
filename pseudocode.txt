@@ -3,11 +3,11 @@ movement sensor pseudocode for Arduino:
 #initalise some variables
 prev_value = [0]*32 # array of previous values
 outputPins = [] # array of output pins 
-value,prev_value, threshold
+int value threshold
 
 
 loop() # programme runs until stopped
-	for i=0:31 : # loop through each sensor 
+	for i=0:30 : # loop through each sensor 
 		value = readSensor(i) 
 		if |value - prev_value[i]| > threshold: #compare current sensor value to previous
 			logMovement(i,currentTime()) # if difference in value passes threshold: log movement
@@ -19,11 +19,14 @@ def logMovement(i,time)
 	serial.println("sensor: " + str(i) + ", Time: " + str(time))
 
 def readSensor(i)
-	digits = binary(i)	
+	digits = binary(i) # convert sensor number (i) to binary
 
 	for i in outputPins: 
-		outputPins[i] = digits[i]
+		if digits[i] == 1: 
+			set(outputPins[i],HIGH)
+		else	
+			set(outputPins[i],LOW
 
-	delay(100 ns)
+	delay(x)
 	return analogRead(analogPin)
 		
