@@ -15,13 +15,15 @@ loop() # programme runs until stopped
 			do nothing
 		prev_value[i] = value # set previous value
 
+# define some functions below
+
 def logMovement(i,time)
-	serial.println("sensor: " + str(i) + ", Time: " + str(time))
+	serial.println("sensor: " + str(i) + ", Time: " + str(time)) # print what sensor has been triggered at what time
 
 def readSensor(i)
 	digits = binary(i) # convert sensor number (i) to binary
 
-	for i in outputPins: 
+	for i in outputPins: # set multiplexer control pins
 		if digits[i] == 1: 
 			set(outputPins[i],HIGH)
 		else	
