@@ -1,5 +1,7 @@
 # Movement Sensor
-A sensor array that monitors how much a user moves at night 
+A sensor array that monitors how much a user moves at night.
+
+This project is still very young and these are just some musings, hopefully I will make a first prototype soon. 
 
 # Block Diagram
 
